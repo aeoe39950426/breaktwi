@@ -19,17 +19,17 @@ before = 0
 after = 0
 
 #’この中’には自分のスクリーンネーム
-user = api.GetUser(screen_name='@')
+user = api.GetUser(screen_name='@hoge')
 id = user.id
 
 while 1:
     #ここも
-    user = api.GetUser(screen_name='@')
+    user = api.GetUser(screen_name='@hoge')
     tweets = api.GetStatus(id)
     before = user.statuses_count
     time.sleep(60)
     #しつこいようだがここも
-    user = api.GetUser(screen_name='@aeoe39950426')
+    user = api.GetUser(screen_name='@hoge')
     after = user.statuses_count
     diff = after-before
     print u'ツイートした数:%d' % (diff)
