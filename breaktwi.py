@@ -17,19 +17,17 @@ api=twitter.Api(consumer_key=CK,consumer_secret=CS,access_token_key=AT,access_to
 print u'システム起動します。'
 before = 0
 after = 0
-
-#’この中’には自分のスクリーンネーム
-user = api.GetUser(screen_name='@hoge')
+#''の中にスクリーンネーム
+scname = '@hoge'
+user = api.GetUser(screen_name=scname)
 id = user.id
 
 while 1:
-    #ここも
-    user = api.GetUser(screen_name='@hoge')
+    user = api.GetUser(screen_name=scname)
     tweets = api.GetStatus(id)
     before = user.statuses_count
     time.sleep(60)
-    #しつこいようだがここも
-    user = api.GetUser(screen_name='@hoge')
+    user = api.GetUser(screen_name=scname)
     after = user.statuses_count
     diff = after-before
     print u'ツイートした数:%d' % (diff)
